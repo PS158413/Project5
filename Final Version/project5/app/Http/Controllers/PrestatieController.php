@@ -4,12 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Models\Oefening;
-
-use Illuminate\Support\Facades\Log;
-use Route;
-
-class OefeningController extends Controller
+class PrestatieController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,9 +13,7 @@ class OefeningController extends Controller
      */
     public function index()
     {
-        log::channel('oefeningen')->info('oefeningen', [ 'action'=> Route::current()->getActionMethod()]);
-
-        return Oefening::select('id','oefeningen','beschrijving','foto')->get();
+        //
     }
 
     /**
