@@ -41,7 +41,37 @@ class OefeningController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        log::channel('oefeningen')->info('oefeningen', [ 'áction' => Route::current()->getActionMethod()]);
+        $request->validate([
+            'oefeningen'=>'required',
+            'beschrijving'=>'required',
+            'foto'=>'required|foto',
+        ]);
+
+        try{
+
+
+            $textname = Str::random().'.'.$request->image->getClientOriginalExtension();
+            Storage::disk('public')->putFileAs('oefening/beschrijving' , $request->image,$textname);
+            Oefening::create($request->post()+['beschrijving' =>$imagename]);
+
+
+
+
+            $imagename = Str::random().'.'.$request->foto->getClientOriginalExtension();
+            Storage::disk('public')->putFileAs('oefening/foto' , $request->foto,$imagename);
+            Oefening::create($request->post()+['foto' =>$imagename]);
+
+            return response()->json([
+                'message'=>'Oefening Opgeslagen!!'
+            ]);
+
+        }catch(\Exception $e){
+            \Log::error($e->getMessage());
+            return response()->json([
+                'message'=>'Er ging iets mies met het opslaan van de oefening !!'
+            ],500);
+        }
     }
 
     /**
@@ -50,9 +80,11 @@ class OefeningController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show( Oefening $oefening)
     {
-        //
+        return response()->json([
+            'oefening'=>$oefening
+        ]);
     }
 
     /**
@@ -75,7 +107,12 @@ class OefeningController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        log::channel('oefening')->info('oefening', ['action'=> Route::current()->getActionMethod()]);
+        $request->validate([
+            'oefeningen'=>'required',
+            'beschrijving'=>'required',
+            'foto'=>'nullable',
+        ]);
     }
 
     /**
