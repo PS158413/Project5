@@ -16,9 +16,23 @@ use App\Http\Controllers\prestatieController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::apiResource('prestaties', prestatieController::class)->only(['index', 'show']);
+
+Route::post('/login', [AuthenticationController::class, 'login']);
+
+Route::post('/register', [AuthenticationController::class, 'register']);
+
+Route::resource('oefeningen',OefeningController::class)->parameters(['oefeningen' => 'oefening']);
+
+Route::group(['middleware' => ['auth:sanctum']], function () {
+
+// PROTECTED ROUTES
+    Route::apiResource('prestaties', prestatieController::class)->except(['index', 'show']);
+
+    Route::get('profile', function(Request $request) { return auth()->user();});
+
+    Route::post('/logout', [AuthenticationController::class, 'logout']);
+
 });
 
-Route::resource('oefening',OefeningController::class);
-Route::apiResource('prestatie', prestatieController::class);
+
