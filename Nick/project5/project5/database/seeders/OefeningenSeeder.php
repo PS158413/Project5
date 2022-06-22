@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
-class OefeningenSeeder extends Seeder
+class oefeningenSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -17,49 +17,49 @@ class OefeningenSeeder extends Seeder
     public function run()
     {
         DB::table('oefeningen')->insert([
-            'oefeningen' => 'Push-up',
+            'oefening' => 'Push-up',
             'Beschrijving' => 'pushup.txt',
             'foto' => 'pushup.jpg',
 
         ]);
 
         DB::table('oefeningen')->insert([
-            'oefeningen' => 'Squat',
+            'oefening' => 'Squat',
             'Beschrijving' => 'squat.txt',
             'foto' => 'squat.jpg',
 
         ]);
 
         DB::table('oefeningen')->insert([
-            'oefeningen' => 'Dip',
+            'oefening' => 'Dip',
             'Beschrijving' => 'dip.txt',
             'foto' => 'dip.jpg',
 
         ]);
 
         DB::table('oefeningen')->insert([
-            'oefeningen' => 'Plank',
+            'oefening' => 'Plank',
             'Beschrijving' => 'plank.txt',
             'foto' => 'plank.jpg',
 
         ]);
 
         DB::table('oefeningen')->insert([
-            'oefeningen' => 'Paardentrap',
+            'oefening' => 'Paardentrap',
             'Beschrijving' => 'paardentrap.txt',
             'foto' => 'paardentrap.jpg',
 
         ]);
 
         DB::table('oefeningen')->insert([
-            'oefeningen' => 'Mountain climber',
+            'oefening' => 'Mountain climber',
             'Beschrijving' => 'mountainclimber.txt',
             'foto' => 'mountainclimber.jpg',
 
         ]);
 
         DB::table('oefeningen')->insert([
-            'oefeningen' => 'Burpee',
+            'oefening' => 'Burpee',
             'Beschrijving' => 'burpee.txt',
             'foto' => 'burpee.jpg',
 
