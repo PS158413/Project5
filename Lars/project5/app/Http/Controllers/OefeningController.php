@@ -44,7 +44,7 @@ class OefeningController extends Controller
         log::channel('oefening')->info('oefening', [ 'áction' => Route::current()->getActionMethod()]);
         $request->validate([
             'oefening'=>'required',
-            'beschrijving'=>'required',
+            'beschrijving'=>'required|txt',
             'foto'=>'required|foto',
         ]);
 
