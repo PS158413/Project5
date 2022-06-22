@@ -18,9 +18,9 @@ class OefeningController extends Controller
      */
     public function index()
     {
-        log::channel('oefeningen')->info('oefeningen', [ 'action'=> Route::current()->getActionMethod()]);
+        log::channel('oefening')->info('oefening', [ 'action'=> Route::current()->getActionMethod()]);
 
-        return Oefening::select('id','oefeningen','beschrijving','foto')->get();
+        return Oefening::select('id','oefening','beschrijving','foto')->get();
     }
 
     /**
@@ -41,9 +41,9 @@ class OefeningController extends Controller
      */
     public function store(Request $request)
     {
-        log::channel('oefeningen')->info('oefeningen', [ 'áction' => Route::current()->getActionMethod()]);
+        log::channel('oefening')->info('oefening', [ 'áction' => Route::current()->getActionMethod()]);
         $request->validate([
-            'oefeningen'=>'required',
+            'oefening'=>'required',
             'beschrijving'=>'required',
             'foto'=>'required|foto',
         ]);
@@ -107,7 +107,7 @@ class OefeningController extends Controller
     {
         log::channel('oefening')->info('oefening', ['action'=> Route::current()->getActionMethod()]);
         $request->validate([
-            'oefeningen'=>'required',
+            'oefening'=>'required',
             'beschrijving'=>'required',
             'foto'=>'nullable',
         ]);
