@@ -38,6 +38,7 @@ class PrestatieController extends Controller
      */
     public function store(Request $request)
     {
+
         log::channel('prestatie')->info('prestatie', [ 'action'=> Route::current()->getActionMethod()]);
         return prestatie::create($request->all());
     }

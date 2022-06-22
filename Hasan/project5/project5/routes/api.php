@@ -17,13 +17,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::apiResource('prestatie', prestatieController::class)->only(['index', 'show']);
+Route::apiResource('prestaties', prestatieController::class)->only(['index', 'show']);
 Route::post('/login', [AuthenticationController::class, 'login']);
 Route::post('/register', [AuthenticationController::class, 'register']);
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
 
 // PROTECTED ROUTES
+    Route::apiResource('prestaties', prestatieController::class)->except(['index', 'show']);
 
     Route::get('profile', function(Request $request) { return auth()->user();});
 

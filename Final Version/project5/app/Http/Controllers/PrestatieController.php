@@ -73,8 +73,8 @@ class PrestatieController extends Controller
      */
     public function update(Request $request, prestatie $prestatie)
     {
-        $prestatie->update($request->all());
-        return $prestatie;
+        // $prestatie->update($request->all());
+        // return $prestatie;
     }
 
     /**
