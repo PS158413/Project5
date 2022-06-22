@@ -18,9 +18,9 @@ class OefeningController extends Controller
      */
     public function index()
     {
-        log::channel('oefeningen')->info('oefeningen', [ 'action'=> Route::current()->getActionMethod()]);
+        log::channel('oefening')->info('oefening', [ 'action'=> Route::current()->getActionMethod()]);
 
-        return Oefening::select('id','oefeningen','beschrijving','foto')->get();
+        return Oefening::select('id','oefening','beschrijving','foto')->get();
     }
 
     /**
@@ -41,7 +41,35 @@ class OefeningController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        log::channel('oefening')->info('oefening', [ 'áction' => Route::current()->getActionMethod()]);
+        $request->validate([
+            'oefening'=>'required',
+            'beschrijving'=>'required',
+            'foto'=>'required|foto',
+        ]);
+
+        try{
+
+
+            $textname = Str::random().'.'.$request->text->getClientOriginalExtension();
+            Storage::disk('public')->putFileAs('oefening/beschrijving' , $request->text,$textname);
+            Oefening::create($request->post()+['beschrijving' =>$textname]);
+
+
+            $imagename = Str::random().'.'.$request->foto->getClientOriginalExtension();
+            Storage::disk('public')->putFileAs('oefening/foto' , $request->foto,$imagename);
+            Oefening::create($request->post()+['foto' =>$imagename]);
+
+            return response()->json([
+                'message'=>'Oefening Opgeslagen!!'
+            ]);
+
+        }catch(\Exception $e){
+            \Log::error($e->getMessage());
+            return response()->json([
+                'message'=>'Er ging iets mies met het opslaan van de oefening !!'
+            ],500);
+        }
     }
 
     /**
@@ -50,9 +78,11 @@ class OefeningController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show( Oefening $oefening)
     {
-        //
+        return response()->json([
+            'oefening'=>$oefening
+        ]);
     }
 
     /**
@@ -75,7 +105,12 @@ class OefeningController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        log::channel('oefening')->info('oefening', ['action'=> Route::current()->getActionMethod()]);
+        $request->validate([
+            'oefening'=>'required',
+            'beschrijving'=>'required',
+            'foto'=>'nullable',
+        ]);
     }
 
     /**
