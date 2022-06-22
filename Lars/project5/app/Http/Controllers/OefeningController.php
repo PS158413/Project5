@@ -51,11 +51,9 @@ class OefeningController extends Controller
         try{
 
 
-            $textname = Str::random().'.'.$request->image->getClientOriginalExtension();
-            Storage::disk('public')->putFileAs('oefening/beschrijving' , $request->image,$textname);
-            Oefening::create($request->post()+['beschrijving' =>$imagename]);
-
-
+            $textname = Str::random().'.'.$request->text->getClientOriginalExtension();
+            Storage::disk('public')->putFileAs('oefening/beschrijving' , $request->text,$textname);
+            Oefening::create($request->post()+['beschrijving' =>$textname]);
 
 
             $imagename = Str::random().'.'.$request->foto->getClientOriginalExtension();

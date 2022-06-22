@@ -21,7 +21,7 @@ return new class extends Migration
             $table->integer('aantal');
 
             $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('oefening_id')->references('id')->on('oefeningen');
+            $table->foreign('oefening_id')->references('id')->on('oefening');
 
         });
     }
