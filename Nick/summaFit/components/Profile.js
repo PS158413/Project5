@@ -10,6 +10,30 @@ const Tab = createBottomTabNavigator();
 
 
 export default function App() {
+    const [data, setData] = useState([]);
+
+    const fetchData = async () => {
+        const resp = await fetch("https://api.sampleapis.com/movies/horror");
+        const data = await resp.json();
+        console.log(data);
+        setData(data);
+    };
+   
+    useEffect(() => {
+        fetchData();
+    }, []);
+
+    const renderItem = ({ item }) => (
+
+        <Text
+            style={styles.text}
+            onPress={() => navigation.navigate("ExerciseDetails", { id: item.id })}
+        >
+            {item.title}
+        </Text>
+
+
+    );
 
     const [text, onChangeText] = React.useState("Useless Text");
     const [number, onChangeNumber] = React.useState(null);
@@ -17,6 +41,13 @@ export default function App() {
         <View style={styles.container}>
             <ImageBackground source={require('../assets/backgroundexercise.png')} resizeMode="cover" style={styles.image} >
                 <Text style={{ height: '85%', fontSize: 32 }} >Profile</Text>
+
+                <FlatList style={styles.FlatList}
+                    data={data}
+                    renderItem={renderItem}
+                    keyExtractor={(item) => item.id.toString()}
+                ></FlatList>
+
                 <StatusBar style="auto" />
             </ImageBackground>
         </View>
