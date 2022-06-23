@@ -153,8 +153,32 @@ class OefeningController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Oefening $oefening)
     {
-        //
+        log::channel('oefening')->info('oefening', [ 'action'=> Route::current()->getActionMethod()]);
+
+        try {
+
+            if($oefening->foto){
+                $exists = Storage::disk('public')->exists("oefening/foto/{$oefening->foto}");
+                if($exists){
+                    Storage::disk('public')->delete("oefening/foto/{$oefening->foto}");
+                }
+            }
+
+            $oefening->delete();
+
+            return response()->json([
+
+                'message'=>'Oefening is verwijderd!!'
+            ]);
+
+        } catch (\Exception $e) {
+            \Log::error($e->getMessage());
+            return response()->json([
+                'message'=>'Er iets is misgegaan!!'
+            ]);
+        }
     }
-}
+    }
+

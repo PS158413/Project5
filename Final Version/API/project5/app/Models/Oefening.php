@@ -17,7 +17,7 @@ class Oefening extends Model
      *
      * @var string
      */
-    protected $table = "oefeningen";
+    protected $table = "oefening";
 
 
 }

@@ -22,7 +22,7 @@ Route::post('/login', [AuthenticationController::class, 'login']);
 
 Route::post('/register', [AuthenticationController::class, 'register']);
 
-Route::resource('oefeningen',OefeningController::class)->parameters(['oefeningen' => 'oefening']);
+Route::resource('oefening',OefeningController::class)->parameters(['oefening' => 'oefening']);
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
 
