@@ -3,23 +3,37 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TextInput, SafeAreaView, Button, TouchableOpacity, ImageBackground } from 'react-native';
 // import { TextInput } from 'react-native-paper';
 
+import Home from "./components/Home";
+import Exercises from "./components/Exercises";
+import ExerciseDetails from "./components/ExerciseDetails";
+import Profile from "./components/Profile";
 
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { NavigationContainer } from '@react-navigation/native';
+
+
+const Tab = createBottomTabNavigator();
+
+function MyTabs() {
+    return (
+        <Tab.Navigator>
+            <Tab.Screen name="Home" component={Home} />
+            <Tab.Screen name="Exercises" component={Exercises} />
+            {/* <Tab.Screen name="ExerciseDetails" component={ExerciseDetails} /> */}
+            <Tab.Screen name="Profile" component={Profile} />
+        </Tab.Navigator>
+    );
+}
 export default function App() {
-
-  const [text, onChangeText] = React.useState("Useless Text");
-  const [number, onChangeNumber] = React.useState(null);
   return (
     <View style={styles.container}>
-       <ImageBackground source={require('./assets/background_exercise.png')} resizeMode="contain" style={styles.image} >
-     <Text style={styles.textsem}  >oefeningen details</Text>
-  
+      <NavigationContainer>
+        <MyTabs/>
+      </NavigationContainer>
      <StatusBar style="auto" />
-
-      </ImageBackground>
     </View>
   );
 }
-
 const styles = StyleSheet.create({
   container: {
     flex:1,
