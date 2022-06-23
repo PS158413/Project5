@@ -44,7 +44,7 @@ class OefeningController extends Controller
         log::channel('oefening')->info('oefening', [ 'áction' => Route::current()->getActionMethod()]);
         $request->validate([
             'oefening'=>'required',
-            'beschrijving'=>'required',
+            'beschrijving'=>'required|txt',
             'foto'=>'required|foto',
         ]);
 
@@ -103,7 +103,7 @@ class OefeningController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Oefneing $oefening)
     {
         log::channel('oefening')->info('oefening', ['action'=> Route::current()->getActionMethod()]);
         $request->validate([
@@ -111,6 +111,40 @@ class OefeningController extends Controller
             'beschrijving'=>'required',
             'foto'=>'nullable',
         ]);
+
+        try{
+
+            $oefening->fill($request->post())->update();
+
+            if($request->hasFile('foto')){
+
+                // Oude Foto Verwijderen
+                if($oefening->foto){
+                    $exists = Storage::disk('public')->exists("oefening/foto/{$oefening->foto}");
+                    if($exists){
+                        Storage::disk('public')->delete("oefening/foto/{$oefening->foto}");
+                    }
+                }
+
+                $imageName = Str::random().'.'.$request->foto->getClientOriginalExtension();
+                Storage::disk('public')->putFileAs('oefening/foto', $request->foto,$imageName);
+                $oefening->foto = $imageName;
+                $oefening->save();
+            }
+
+            return response()->json([
+                'message'=>'Foto is geupdate!!'
+            ]);
+
+        }catch(\Exception $e){
+            \Log::error($e->getMessage());
+            return response()->json([
+                'message'=>'Er ging iets mis met het updaten van de foto!!'
+            ],500);
+        }
+
+
+
     }
 
     /**
