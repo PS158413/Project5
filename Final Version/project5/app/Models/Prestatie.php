@@ -17,6 +17,6 @@ class prestatie extends Model
      *
      * @var string
      */
-    protected $table = "prestatie";
+    protected $table = "prestaties";
 
 }

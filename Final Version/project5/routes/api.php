@@ -16,18 +16,18 @@ use App\Http\Controllers\PrestatieController;
 |
 */
 
-Route::apiResource('prestatie', PrestatieController::class)->only(['index', 'show']);
+Route::apiResource('prestaties', PrestatieController::class)->only(['index', 'show']);
 
 Route::post('/login', [AuthenticationController::class, 'login']);
 
 Route::post('/register', [AuthenticationController::class, 'register']);
 
-Route::resource('oefening',OefeningController::class)->parameters(['oefening' => 'oefening']);
+Route::resource('oefenings',OefeningController::class)->parameters(['oefenings' => 'oefenings']);
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
 
 // PROTECTED ROUTES
-    Route::apiResource('prestatie', PrestatieController::class)->except(['index', 'show']);
+    Route::apiResource('prestaties', PrestatieController::class)->except(['index', 'show']);
 
     Route::get('profile', function(Request $request) { return auth()->user();});
 

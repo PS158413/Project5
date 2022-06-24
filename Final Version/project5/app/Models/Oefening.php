@@ -9,7 +9,7 @@ class Oefening extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['oefening','beschrijving','foto'];
+    protected $fillable = ['oefenings','beschrijving','foto'];
 
 
     /**
@@ -17,7 +17,7 @@ class Oefening extends Model
      *
      * @var string
      */
-    protected $table = "oefening";
+    protected $table = "oefenings";
 
 
 }
