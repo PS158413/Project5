@@ -3,15 +3,32 @@ import * as React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, ImageBackground } from 'react-native';
 
-export default function App() {
+export default function App({ route }) {
+  const [data, setData] = useState();
+  const { id } = route.params;
 
-  const [text, onChangeText] = React.useState("Useless Text");
-  const [number, onChangeNumber] = React.useState(null);
+  const fetchData = async () => {
+    const resp = await fetch(`https://api.sampleapis.com/movies/horror/${id}`);
+    const data = await resp.json();
+    console.log(resp.title);
+    setData(data);
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+
   return (
     <View style={styles.container}>
       <ImageBackground source={require('../assets/bgOmschrijving.png')} resizeMode="cover" style={styles.image} >
 
         <Text style={styles.texttop}>Oefeningen details</Text>
+
+        <Text style={styles.heading}> {data.oefening}</Text>
+          <Text style={styles.description}>{data.bescrhijving}</Text>
+          <Text style={styles.description}>{data.foto}</Text>
+
         <StatusBar style="auto" />
       </ImageBackground>
 

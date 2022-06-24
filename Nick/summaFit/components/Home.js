@@ -27,11 +27,13 @@ export default function App() {
       <TouchableOpacity style={styles.bLogin}>
         <Text style={{ fontSize: 20, textAlign: "center", }}>Inloggen</Text>
       </TouchableOpacity>
-
-      <TouchableOpacity style={styles.bLogin}>
-        <Text style={{ fontSize: 20, textAlign: "center", }}>registreren</Text>
+      <View style={{flexDirection:'row'}}>
+<Text >Heb je geen account? </Text>
+      <TouchableOpacity     >
+        <Text style={{color:"blue"}}>Registreer</Text>
       </TouchableOpacity>
-
+ 
+</View>
       <StatusBar style="auto" />
     </SafeAreaView>
   );
