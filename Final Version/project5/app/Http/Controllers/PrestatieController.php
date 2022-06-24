@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\prestatie;
+use App\Models\Prestatie;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
@@ -17,7 +17,7 @@ class PrestatieController extends Controller
      */
     public function index()
     {
-        return prestatie::all();
+        return Prestatie::all();
     }
 
     /**
@@ -39,7 +39,7 @@ class PrestatieController extends Controller
     public function store(Request $request)
     {
         log::channel('prestatie')->info('prestatie', [ 'action'=> Route::current()->getActionMethod()]);
-        return prestatie::create($request->all());
+        return Prestatie::create($request->all());
     }
 
     /**

@@ -3,7 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\OefeningController;
-use App\Http\Controllers\prestatieController;
+use App\Http\Controllers\PrestatieController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +16,7 @@ use App\Http\Controllers\prestatieController;
 |
 */
 
-Route::apiResource('prestaties', prestatieController::class)->only(['index', 'show']);
+Route::apiResource('prestatie', PrestatieController::class)->only(['index', 'show']);
 
 Route::post('/login', [AuthenticationController::class, 'login']);
 
@@ -27,7 +27,7 @@ Route::resource('oefening',OefeningController::class)->parameters(['oefening' =>
 Route::group(['middleware' => ['auth:sanctum']], function () {
 
 // PROTECTED ROUTES
-    Route::apiResource('prestaties', prestatieController::class)->except(['index', 'show']);
+    Route::apiResource('prestatie', PrestatieController::class)->except(['index', 'show']);
 
     Route::get('profile', function(Request $request) { return auth()->user();});
 

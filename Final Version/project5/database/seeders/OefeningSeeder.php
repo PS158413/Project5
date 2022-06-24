@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
-class oefeningenSeeder extends Seeder
+class oefeningSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,51 +16,51 @@ class oefeningenSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('oefening')->insert([
+        DB::table('oefenings')->insert([
             'oefening' => 'Push-up',
-            'Beschrijving' => 'pushup.txt',
+            'beschrijving' => 'pushup.txt',
             'foto' => 'pushup.jpg',
 
         ]);
 
-        DB::table('oefening')->insert([
+        DB::table('oefenings')->insert([
             'oefening' => 'Squat',
-            'Beschrijving' => 'squat.txt',
+            'beschrijving' => 'squat.txt',
             'foto' => 'squat.jpg',
 
         ]);
 
-        DB::table('oefening')->insert([
+        DB::table('oefenings')->insert([
             'oefening' => 'Dip',
-            'Beschrijving' => 'dip.txt',
+            'beschrijving' => 'dip.txt',
             'foto' => 'dip.jpg',
 
         ]);
 
-        DB::table('oefening')->insert([
+        DB::table('oefenings')->insert([
             'oefening' => 'Plank',
-            'Beschrijving' => 'plank.txt',
+            'beschrijving' => 'plank.txt',
             'foto' => 'plank.jpg',
 
         ]);
 
-        DB::table('oefening')->insert([
+        DB::table('oefenings')->insert([
             'oefening' => 'Paardentrap',
-            'Beschrijving' => 'paardentrap.txt',
+            'beschrijving' => 'paardentrap.txt',
             'foto' => 'paardentrap.jpg',
 
         ]);
 
-        DB::table('oefening')->insert([
+        DB::table('oefenings')->insert([
             'oefening' => 'Mountain climber',
-            'Beschrijving' => 'mountainclimber.txt',
+            'beschrijving' => 'mountainclimber.txt',
             'foto' => 'mountainclimber.jpg',
 
         ]);
 
-        DB::table('oefening')->insert([
+        DB::table('oefenings')->insert([
             'oefening' => 'Burpee',
-            'Beschrijving' => 'burpee.txt',
+            'beschrijving' => 'burpee.txt',
             'foto' => 'burpee.jpg',
 
         ]);
