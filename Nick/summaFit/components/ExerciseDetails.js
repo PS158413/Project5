@@ -3,12 +3,12 @@ import * as React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, ImageBackground } from 'react-native';
 
-export default function App({ route }) {
+export default function App({ route, navigation }) {
   const [data, setData] = useState();
   const { id } = route.params;
 
   const fetchData = async () => {
-    const resp = await fetch(`https://api.sampleapis.com/movies/horror/${id}`);
+    const resp = await fetch(`https://nameless-stream-28529.herokuapp.com/api/oefenings/${id}`);
     const data = await resp.json();
     console.log(resp.title);
     setData(data);

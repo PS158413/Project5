@@ -16,7 +16,7 @@ export default function App({ navigation }) {
     const [data, setData] = useState([]);
 
     const fetchData = async () => {
-        const resp = await fetch("https://secret-waters-37238.herokuapp.com/api/oefening");
+        const resp = await fetch("https://nameless-stream-28529.herokuapp.com/api/oefenings");
         const data = await resp.json();
         console.log(data);
         setData(data);
@@ -32,7 +32,7 @@ export default function App({ navigation }) {
             style={styles.text}
             onPress={() => navigation.navigate("ExerciseDetails", { id: item.id })}
         >
-            {item.oefening}
+            {item.oefenings}
         </Text>
 
 
@@ -73,10 +73,9 @@ const styles = StyleSheet.create({
     FlatList: {
         marginTop: 50,
         alignContent: 'center',
-
     },
     text: {
         fontSize: 30,
-
+         fontWeight: '300' , // Light
     },
 });
