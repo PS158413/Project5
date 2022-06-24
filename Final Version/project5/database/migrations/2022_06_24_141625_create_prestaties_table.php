@@ -19,9 +19,10 @@ return new class extends Migration
             $table->unsignedBigInteger('oefening_id');
             $table->decimal('eindtijd');
             $table->integer('aantal');
+            $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('oefening_id')->references('id')->on('oefening');
+            $table->foreign('oefening_id')->references('id')->on('oefenings');
 
         });
     }

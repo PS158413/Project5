@@ -16,49 +16,49 @@ class oefeningSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('oefening')->insert([
+        DB::table('oefenings')->insert([
             'oefening' => 'Push-up',
             'beschrijving' => 'pushup.txt',
             'foto' => 'pushup.jpg',
 
         ]);
 
-        DB::table('oefening')->insert([
+        DB::table('oefenings')->insert([
             'oefening' => 'Squat',
             'beschrijving' => 'squat.txt',
             'foto' => 'squat.jpg',
 
         ]);
 
-        DB::table('oefening')->insert([
+        DB::table('oefenings')->insert([
             'oefening' => 'Dip',
             'beschrijving' => 'dip.txt',
             'foto' => 'dip.jpg',
 
         ]);
 
-        DB::table('oefening')->insert([
+        DB::table('oefenings')->insert([
             'oefening' => 'Plank',
             'beschrijving' => 'plank.txt',
             'foto' => 'plank.jpg',
 
         ]);
 
-        DB::table('oefening')->insert([
+        DB::table('oefenings')->insert([
             'oefening' => 'Paardentrap',
             'beschrijving' => 'paardentrap.txt',
             'foto' => 'paardentrap.jpg',
 
         ]);
 
-        DB::table('oefening')->insert([
+        DB::table('oefenings')->insert([
             'oefening' => 'Mountain climber',
             'beschrijving' => 'mountainclimber.txt',
             'foto' => 'mountainclimber.jpg',
 
         ]);
 
-        DB::table('oefening')->insert([
+        DB::table('oefenings')->insert([
             'oefening' => 'Burpee',
             'beschrijving' => 'burpee.txt',
             'foto' => 'burpee.jpg',
