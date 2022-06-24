@@ -1,6 +1,7 @@
-import * as React from 'react';
+
+import React, {useState, useEffect} from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TextInput, SafeAreaView, Button, TouchableOpacity, ImageBackground } from 'react-native';
+import { StyleSheet, Text, View, TextInput, SafeAreaView, Button, TouchableOpacity, ImageBackground, FlatList    } from 'react-native';
 // import { TextInput } from 'react-native-paper';
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -13,7 +14,7 @@ export default function App() {
     const [data, setData] = useState([]);
 
     const fetchData = async () => {
-        const resp = await fetch("https://api.sampleapis.com/movies/horror");
+        const resp = await fetch("https://secret-waters-37238.herokuapp.com/api/oefening");
         const data = await resp.json();
         console.log(data);
         setData(data);
@@ -35,8 +36,7 @@ export default function App() {
 
     );
 
-    const [text, onChangeText] = React.useState("Useless Text");
-    const [number, onChangeNumber] = React.useState(null);
+
     return (
         <View style={styles.container}>
             <ImageBackground source={require('../assets/backgroundexercise.png')} resizeMode="cover" style={styles.image} >

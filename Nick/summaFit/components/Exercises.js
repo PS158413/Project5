@@ -1,7 +1,8 @@
-import * as React from 'react';
-import { StatusBar } from 'expo-status-bar';
 
-import { StyleSheet, Text, View, TextInput, SafeAreaView, Button, TouchableOpacity, ImageBackground } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
+import React, { useState, useEffect } from 'react';
+
+import { StyleSheet, Text, View, TextInput, SafeAreaView, Button, TouchableOpacity, ImageBackground, FlatList } from 'react-native';
 // import { TextInput } from 'react-native-paper';
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -10,13 +11,44 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 const Tab = createBottomTabNavigator();
 
 
-export default function App() {
-    
+export default function App({ navigation }) {
+
+    const [data, setData] = useState([]);
+
+    const fetchData = async () => {
+        const resp = await fetch("https://secret-waters-37238.herokuapp.com/api/oefening");
+        const data = await resp.json();
+        console.log(data);
+        setData(data);
+    };
+
+    useEffect(() => {
+        fetchData();
+    }, []);
+
+    const renderItem = ({ item }) => (
+
+        <Text
+            style={styles.text}
+            onPress={() => navigation.navigate("ExerciseDetails", { id: item.id })}
+        >
+            {item.oefening}
+        </Text>
+
+
+    );
+
 
     return (
         <View style={styles.container}>
             <ImageBackground source={require('../assets/backgroundexercise.png')} resizeMode="cover" style={styles.image} >
-                <Text style={{ height: '85%', fontSize: 32 }} >oefeningenlijst</Text>
+                <Text style={{ fontSize: 32 }} >oefeningenlijst</Text>
+
+                <FlatList style={styles.FlatList}
+                    data={data}
+                    renderItem={renderItem}
+                    keyExtractor={(item) => item.id.toString()}
+                ></FlatList>
                 <StatusBar style="auto" />
             </ImageBackground>
         </View>
@@ -37,5 +69,14 @@ const styles = StyleSheet.create({
         height: "100%",
         alignItems: "center",
         justifyContent: "center",
+    },
+    FlatList: {
+        marginTop: 50,
+        alignContent: 'center',
+
+    },
+    text: {
+        fontSize: 30,
+
     },
 });
