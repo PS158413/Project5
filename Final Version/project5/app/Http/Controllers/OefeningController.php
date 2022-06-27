@@ -18,9 +18,9 @@ class OefeningController extends Controller
      */
     public function index()
     {
-        log::channel('oefening')->info('oefening', [ 'action'=> Route::current()->getActionMethod()]);
+        log::channel('oefenings')->info('oefenings', [ 'action'=> Route::current()->getActionMethod()]);
 
-        return Oefening::select('id','oefening','beschrijving','foto')->get();
+        return Oefening::select('id','oefenings','beschrijving','foto')->get();
     }
 
     /**
@@ -121,6 +121,29 @@ class OefeningController extends Controller
      */
     public function destroy($id)
     {
-        //
+        log::channel('oefening')->info('oefening', [ 'action'=> Route::current()->getActionMethod()]);
+
+        try {
+
+            if($oefening->foto){
+                $exists = Storage::disk('public')->exists("oefening/foto/{$oefening->foto}");
+                if($exists){
+                    Storage::disk('public')->delete("oefening/foto/{$oefening->foto}");
+                }
+            }
+
+            $oefening->delete();
+
+            return response()->json([
+
+                'message'=>'Oefening is verwijderd!!'
+            ]);
+
+        } catch (\Exception $e) {
+            \Log::error($e->getMessage());
+            return response()->json([
+                'message'=>'Er iets is misgegaan!!'
+            ]);
+        }
     }
 }

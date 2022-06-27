@@ -1,59 +1,57 @@
 import * as React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TextInput, SafeAreaView, Button} from 'react-native';
+import { StyleSheet, Text, View, TextInput, SafeAreaView, Button, TouchableOpacity, ImageBackground } from 'react-native';
 // import { TextInput } from 'react-native-paper';
 
+import Home from "./components/Home";
+import Exercises from "./components/Exercises";
+import ExerciseDetails from "./components/ExerciseDetails";
+import Profile from "./components/Profile";
 
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { NavigationContainer } from '@react-navigation/native';
+
+
+const Tab = createBottomTabNavigator();
+
+function MyTabs() {
+    return (
+        <Tab.Navigator>
+            <Tab.Screen name="Home" component={Home} />
+            <Tab.Screen name="Exercises" component={Exercises} />
+            {/* <Tab.Screen name="ExerciseDetails" component={ExerciseDetails} /> */}
+            <Tab.Screen name="Profile" component={Profile} />
+        </Tab.Navigator>
+    );
+}
 export default function App() {
-
-const [text, onChangeText] = React.useState("Useless Text");
-const [number, onChangeNumber] = React.useState(null);
   return (
-    <SafeAreaView style={styles.container}>
-         <TextInput
-        style={styles.input}
-        // onChangeText={onChangeNumber}
-        // value={number}
-        placeholder="Username"
-        // keyboardType="numeric"
-      /> 
-      <TextInput
-        style={styles.input}
-        // onChangeText={onChangeNumber}
-        // value={number}
-        placeholder="Password"
-        // keyboardType="numeric"
-      /> 
-      <Button
-      style={styles.bLogin}
-title="Inloggen"
-color="#59CBE8"
-/>
-      <StatusBar style="auto" />
-    </SafeAreaView>
+    <View style={styles.container}>
+      <NavigationContainer>
+        <MyTabs/>
+      </NavigationContainer>
+     <StatusBar style="auto" />
+    </View>
   );
 }
-
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#0FEED9',
-    alignItems: 'center',
-    justifyContent: 'center',
+    flex:1,
+    flexDirection:'row',  
+    alignItems:'center',
+    justifyContent:'center',
+    textAlignVertical: 'top',
+    paddingTop: 0,
+paddingBottom: 0
   },
-  input: {
-    height: 40,
-    margin: 12,
-   
-    borderBottomWidth:1,
-    padding: 10,
-    width: '35%',
-    textAlign : "center",
+
+  image: {
+    width: "100%",
+    height: "100%",
+    alignItems: "center",
+    justifyContent: "center",
   },
-  Blogin: {
-    height: 40,
-    margin: 12,
-    backgroundColor: '#59CBE8',
-   
+  textsem: {
+    height: "70%",
   },
 });
