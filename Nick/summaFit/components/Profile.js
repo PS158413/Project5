@@ -14,7 +14,7 @@ export default function App() {
     const [data, setData] = useState([]);
 
     const fetchData = async () => {
-        const resp = await fetch("https://secret-waters-37238.herokuapp.com/api/oefening");
+        const resp = await fetch("https://nameless-stream-28529.herokuapp.com/api/prestaties");
         const data = await resp.json();
         console.log(data);
         setData(data);
@@ -30,7 +30,7 @@ export default function App() {
             style={styles.text}
             onPress={() => navigation.navigate("ExerciseDetails", { id: item.id })}
         >
-            {item.title}
+            {item.prestaties}
         </Text>
 
 

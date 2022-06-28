@@ -8,7 +8,7 @@ export default function App({ route }) {
   const { id } = route.params;
 
   const fetchData = async () => {
-    const resp = await fetch(`https://api.sampleapis.com/movies/horror/${id}`);
+    const resp = await fetch(`https://nameless-stream-28529.herokuapp.com/api/oefenings/${id}`);
     const data = await resp.json();
     console.log(resp.title);
     setData(data);
@@ -25,8 +25,8 @@ export default function App({ route }) {
 
         <Text style={styles.texttop}>Oefeningen details</Text>
 
-        <Text style={styles.heading}> {data.oefening}</Text>
-          <Text style={styles.description}>{data.bescrhijving}</Text>
+        <Text style={styles.heading}> {oefening}</Text>
+          <Text style={styles.description}>{bescrhijving}</Text>
           <Text style={styles.description}>{data.foto}</Text>
 
         <StatusBar style="auto" />
