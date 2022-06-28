@@ -3,7 +3,7 @@ import * as React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, ImageBackground } from 'react-native';
 
-export default function App({ route, navigation }) {
+export default function App({ route }) {
   const [data, setData] = useState();
   const { id } = route.params;
 

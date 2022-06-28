@@ -1,4 +1,6 @@
+import 'react-native-gesture-handler';
 import * as React from 'react';
+
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TextInput, SafeAreaView, Button, TouchableOpacity, ImageBackground } from 'react-native';
 // import { TextInput } from 'react-native-paper';
@@ -7,10 +9,25 @@ import Exercises from "./components/Exercises";
 import ExerciseDetails from "./components/ExerciseDetails";
 import Profile from "./components/Profile";
 
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
-const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator();
+const Tab = createMaterialBottomTabNavigator();
+
+
+
+const ExerciseStack = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="stackDrivers" component={ExerciseDetails} 
+          options={{title: 'exercise - List'}} />
+
+    </Stack.Navigator>
+  )
+}
+
 
 function MyTabs() {
     return (
@@ -42,6 +59,7 @@ const styles = StyleSheet.create({
     paddingTop: 0,
 paddingBottom: 0
   },
+  
 
   image: {
     width: "100%",
