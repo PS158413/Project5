@@ -25,8 +25,8 @@ export default function App({ route, navigation }) {
 
         <Text style={styles.texttop}>Oefeningen details</Text>
 
-        <Text style={styles.heading}> {data.oefening}</Text>
-          <Text style={styles.description}>{data.bescrhijving}</Text>
+        <Text style={styles.heading}> {oefening}</Text>
+          <Text style={styles.description}>{bescrhijving}</Text>
           <Text style={styles.description}>{data.foto}</Text>
 
         <StatusBar style="auto" />

@@ -2,7 +2,6 @@ import * as React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TextInput, SafeAreaView, Button, TouchableOpacity, ImageBackground } from 'react-native';
 // import { TextInput } from 'react-native-paper';
-
 import Home from "./components/Home";
 import Exercises from "./components/Exercises";
 import ExerciseDetails from "./components/ExerciseDetails";
@@ -10,7 +9,6 @@ import Profile from "./components/Profile";
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
-
 
 const Tab = createBottomTabNavigator();
 
