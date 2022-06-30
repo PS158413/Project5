@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, ImageBackground, Image } from 'react-native';
+import { StyleSheet, Text, View, ImageBackground, Image, ScrollView, SafeAreaView } from 'react-native';
 // import ImageURL from 'https://res.cloudinary.com/summa/raw/upload/v1656438728/Project5/beschrijving/${foto}'
 
 
@@ -32,23 +32,24 @@ const ImagesExample = () => (
 console.log(foto);
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <ImageBackground source={require('../assets/bgOmschrijving.png')} resizeMode="cover" style={styles.image} >
 
         <Text style={styles.texttop}>Oefeningen details</Text>
 
-        <View style={styles.details}>
+        <ScrollView style={styles.details}>
           <Text style={styles.description}>id: {id}</Text>
           <Text style={styles.description}>Oefening: {oefenings}</Text>
           {/* <Text style={styles.description} source = {{uri:`https://res.cloudinary.com/summa/raw/upload/v1656438728/Project5/beschrijving/${beschrijving}`}}> {}</Text> */}
+          <Text style={styles.description}>Beschrijving: {beschrijving}</Text>
  
           <Image style={{backgroundColor: 'red',  width: 380, height:300 }} source = {{uri:`https://res.cloudinary.com/summa/image/upload/v1656438446/Project5/fotos/${foto}`}}/>
         
-        </View>
+        </ScrollView>
         <StatusBar style="auto"/>
       </ImageBackground>
 
-    </View>
+    </SafeAreaView>
   );
 }
 
@@ -57,10 +58,8 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
-    textAlignVertical: 'top',
-    paddingTop: 0,
-    paddingBottom: 0
+    alignContent: 'flex-start',
+    justifyContent: 'flex-start',
   },
 
   image: {
@@ -71,7 +70,7 @@ const styles = StyleSheet.create({
   },
   texttop: {
     height: "20%",
-
+    
     fontSize: 32,
   },
   description: {
