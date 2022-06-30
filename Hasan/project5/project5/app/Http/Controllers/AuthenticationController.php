@@ -66,8 +66,9 @@ class AuthenticationController extends Controller
         $response = [
 
             'access_token' => auth()->user()->createToken('API Token')->plainTextToken,
+            'token_type' => 'Bearer',
 
-            'token_type' => 'Bearer'
+            $user = Auth::user()
 
         ];
      //  Log::channel('logs')->info('Ingelogd:',$request->all());

@@ -15,13 +15,14 @@ export const AuthProvider = ({children}) => {
   const [isLoading, setIsLoading] = useState(false);
   const [splashLoading, setSplashLoading] = useState(false);
 
-  const register = (name, email, password) => {
+  const register = (name, email, password, password_confirmation) => {
     setIsLoading(true);
 
     axios.post(`${BASE_URL}/register`, {
         name,
         email,
         password,
+        password_confirmation,
       })
       .then(res => {
         let userInfo = res.data;
@@ -36,13 +37,29 @@ export const AuthProvider = ({children}) => {
       });
   };
 
-  const login = (email, password) => {
+  // async function loginUser(credentials) {
+  //   return fetch('http://localhost:8000/api/login', {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json'
+  
+  //     },
+  //     body: JSON.stringify(credentials)
+  //   })
+  //     .then(data => data.json())
+  //  }
+
+  const login = async (email, password) => {
     setIsLoading(true);
 
     axios.post(`${BASE_URL}/login`, {
         email,
         password,
-      })
+      }, {
+        headers: {'Content-Type': 'application/json'},
+       
+
+      },)
       .then(res => {
         let userInfo = res.data;
         console.log(userInfo);

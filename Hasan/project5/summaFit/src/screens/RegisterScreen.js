@@ -14,9 +14,10 @@ import { AuthContext } from './context/AuthContext';
 
 
 const RegisterScreen = ({navigation}) => {
-  const [name, setName] = useState(null);
-  const [email, setEmail] = useState(null);
-  const [password, setPassword] = useState(null);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [password_confirmation, setPasswordConfirmation] = useState("");
 
   const {isLoading, register} = useContext(AuthContext);
 
@@ -28,24 +29,30 @@ const RegisterScreen = ({navigation}) => {
           style={styles.input}
           value={name}
           placeholder="Enter name"
-          onChangeText={text => setName(text)}
+          onChangeText={text => setName()}
         />
 
         <TextInput
           style={styles.input}
           value={email}
           placeholder="Enter email"
-          onChangeText={text => setEmail(text)}
+          onChangeText={text => setEmail()}
         />
 
         <TextInput
           style={styles.input}
           value={password}
           placeholder="Enter password"
-          onChangeText={text => setPassword(text)}
+          onChangeText={text => setPassword()}
           secureTextEntry
         />
-
+        <TextInput
+          style={styles.input}
+          value={password_confirmation}
+          placeholder="repeat password"
+          onChangeText={text => setPasswordConfirmation()}
+          secureTextEntry
+        />
         <Button
           title="Register"
           onPress={() => {
