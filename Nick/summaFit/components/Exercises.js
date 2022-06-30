@@ -5,10 +5,8 @@ import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, TextInput, SafeAreaView, Button, TouchableOpacity, ImageBackground, FlatList } from 'react-native';
 // import { TextInput } from 'react-native-paper';
 
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 
-const Tab = createBottomTabNavigator();
 
 
 export default function App({ navigation }) {
@@ -27,10 +25,10 @@ export default function App({ navigation }) {
     }, []);
 
     const renderItem = ({ item }) => (
-
+    
         <Text
             style={styles.text}
-            onPress={() => navigation.navigate("ExerciseDetails", { id: item.id })}
+            onPress={() => navigation.push("stackDrivers", { id: item.id })}
         >
             {item.oefenings}
         </Text>

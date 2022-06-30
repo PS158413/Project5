@@ -24,3 +24,9 @@ Auth::routes();
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 
+
+Route::post('home/upload/images', [
+    'uses'   =>  'HomeController@uploadImages',
+    'as'     =>  'uploadImage'
+
+]);
