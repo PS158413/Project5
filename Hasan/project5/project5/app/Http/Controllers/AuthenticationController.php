@@ -3,9 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
-
 use Illuminate\Http\Request;
-
 use App\Models\User;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
@@ -60,7 +58,6 @@ class AuthenticationController extends Controller
         if (!Auth::attempt($attr)) {
 
             return response()->json(['message' => 'Credentials not match'], 401);
-
         }
 
         $response = [
