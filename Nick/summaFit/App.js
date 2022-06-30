@@ -16,14 +16,25 @@ import { createStackNavigator } from '@react-navigation/stack';
 const Stack = createStackNavigator();
 const Tab = createMaterialBottomTabNavigator();
 
-
-
-const ExerciseStack = () => {
+const StackAllExercises = () => {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="stackDrivers" component={ExerciseDetails} 
-          options={{title: 'exercise - List'}} />
+      <Stack.Screen name="Exercises" component={Exercises} 
+          options={{title: 'Exercises'}} />
+           <Stack.Screen name="ExerciseDetails" component={ExerciseDetails} 
+          options={{title: 'ExerciseDetails'}} />
+    </Stack.Navigator>
+  )
+}
 
+
+const OverigStack = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="Home" component={Home} 
+          options={{title: 'Home'}} />
+<Stack.Screen name="Profile" component={Profile} 
+          options={{title: 'Profile'}} />
     </Stack.Navigator>
   )
 }
@@ -32,10 +43,13 @@ const ExerciseStack = () => {
 function MyTabs() {
     return (
         <Tab.Navigator>
-            <Tab.Screen name="Home" component={Home} />
-            <Tab.Screen name="Exercises" component={Exercises} />
-            {/* <Tab.Screen name="ExerciseDetails" component={ExerciseDetails} /> */}
-            <Tab.Screen name="Profile" component={Profile} />
+            {/* <Tab.Screen name="Home" component={Home} /> */}
+            <Tab.Screen name="StackAllExercises" component={StackAllExercises}
+                options={{tabBarLabel: 'oefeningen'}} />
+
+            {/* <Tab.Screen name="Profile" component={Profile} /> */}
+            <Tab.Screen name="OverigStack" component={OverigStack} 
+               options={{tabBarLabel: 'home'}} />
         </Tab.Navigator>
     );
 }

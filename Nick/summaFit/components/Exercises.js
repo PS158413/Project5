@@ -14,7 +14,7 @@ export default function App({ navigation }) {
     const [data, setData] = useState([]);
 
     const fetchData = async () => {
-        const resp = await fetch("https://nameless-stream-28529.herokuapp.com/api/oefenings");
+        const resp = await fetch("https://project5api.herokuapp.com/api/oefenings");
         const data = await resp.json();
         console.log(data);
         setData(data);
@@ -28,7 +28,7 @@ export default function App({ navigation }) {
     
         <Text
             style={styles.text}
-            onPress={() => navigation.push("stackDrivers", { id: item.id })}
+            onPress={() => navigation.navigate("ExerciseDetails", { id: item.id, oefenings: item.oefenings, beschrijving: item.beschrijving, foto: item.foto  })}
         >
             {item.oefenings}
         </Text>
