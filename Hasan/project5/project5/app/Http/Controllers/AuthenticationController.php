@@ -3,9 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
-
 use Illuminate\Http\Request;
-
 use App\Models\User;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
@@ -60,14 +58,14 @@ class AuthenticationController extends Controller
         if (!Auth::attempt($attr)) {
 
             return response()->json(['message' => 'Credentials not match'], 401);
-
         }
 
         $response = [
 
             'access_token' => auth()->user()->createToken('API Token')->plainTextToken,
+            'token_type' => 'Bearer',
 
-            'token_type' => 'Bearer'
+            $user = Auth::user()
 
         ];
      //  Log::channel('logs')->info('Ingelogd:',$request->all());

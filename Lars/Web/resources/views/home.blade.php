@@ -28,7 +28,7 @@
                             <td>{{$value['id']}}</td>
                             <td>{{$value['oefening']}}</td>
                             <td>
-                                <img src="http://localhost:8181/storage/oefening/foto/{{ $value['foto'] }}" width="100px">
+                                <img src="https://res.cloudinary.com/summa/raw/upload/v1656438728/Project5/beschrijving/{{$value['foto'] }}" width="100px">
                             </td>
                             <td>
 

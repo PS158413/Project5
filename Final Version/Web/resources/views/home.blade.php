@@ -26,9 +26,9 @@
                         @foreach($oefenings as $value)
                         <tr>
                             <td>{{$value['id']}}</td>
-                            <td>{{$value['oefening']}}</td>
+                            <td>{{$value['oefenings']}}</td>
                             <td>
-                                <img src="http://localhost:8181/storage/oefening/foto/{{ $value['foto'] }}" width="100px">
+                                <img src="http://localhost:8181/storage/oefeningen/foto/{{ $value['foto'] }}" width="100px">
                             </td>
                             <td>
 
