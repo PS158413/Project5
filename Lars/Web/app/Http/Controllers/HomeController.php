@@ -29,7 +29,7 @@ class HomeController extends Controller
     {
 
         $client = new Client();
-        $res = $client->request('GET', 'https://secret-waters-37238.herokuapp.com/api/oefening');
+        $res = $client->request('GET', 'https://project5api.herokuapp.com/api/oefenings');
         $result = $res->getBody();
         $oefenings = json_decode($result, true);
         return view('home')->with('oefenings', $oefenings);
