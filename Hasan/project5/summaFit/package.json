@@ -10,7 +10,6 @@
     "eject": "expo eject"
   },
   "dependencies": {
-
     "@mdi/font": "^6.7.96",
     "@react-native-community/masked-view": "^0.1.11",
     "@react-native-masked-view/masked-view": "^0.2.6",
