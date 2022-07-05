@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('oefeningen', function (Blueprint $table) {
             $table->id();
-            $table->string('oefening');
+            $table->string('oefenings');
             $table->longText('beschrijving');
             $table->text('foto');
         });
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('oefeningen');
+        Schema::dropIfExists('oefenings');
     }
 };
