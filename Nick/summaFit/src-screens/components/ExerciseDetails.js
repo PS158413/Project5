@@ -32,7 +32,7 @@ console.log(foto);
 
   return (
     <SafeAreaView style={styles.container}>
-      <ImageBackground source={require('../assets/bgOmschrijving.png')} resizeMode="cover" style={styles.image} >
+      {/* <ImageBackground source={require('./assets/bgOmschrijving.png')} resizeMode="cover" style={styles.image} > */}
 
         <Text style={styles.texttop}>Oefeningen details</Text>
 
@@ -45,7 +45,7 @@ console.log(foto);
         
         </ScrollView>
         <StatusBar style="auto"/>
-      </ImageBackground>
+      {/* </ImageBackground> */}
 
     </SafeAreaView>
   );
