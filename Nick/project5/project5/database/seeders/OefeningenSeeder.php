@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
-class OefeningSeeder extends Seeder
+class OefeningenSeeder extends Seeder
 {
     /**
      * Run the database seeds.

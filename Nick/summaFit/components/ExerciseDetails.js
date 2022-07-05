@@ -1,6 +1,5 @@
 
 import React, { useState, useEffect } from 'react';
-
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, ImageBackground, Image, ScrollView, SafeAreaView } from 'react-native';
 // import ImageURL from 'https://res.cloudinary.com/summa/raw/upload/v1656438728/Project5/beschrijving/${foto}'
@@ -38,7 +37,6 @@ console.log(foto);
         <Text style={styles.texttop}>Oefeningen details</Text>
 
         <ScrollView style={styles.details}>
-          <Text style={styles.description}>id: {id}</Text>
           <Text style={styles.description}>Oefening: {oefenings}</Text>
           {/* <Text style={styles.description} source = {{uri:`https://res.cloudinary.com/summa/raw/upload/v1656438728/Project5/beschrijving/${beschrijving}`}}> {}</Text> */}
           <Text style={styles.description}>Beschrijving: {beschrijving}</Text>
@@ -70,7 +68,7 @@ const styles = StyleSheet.create({
   },
   texttop: {
     height: "20%",
-    
+
     fontSize: 32,
   },
   description: {
