@@ -27,7 +27,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-
         $client = new Client();
         $res = $client->request('GET', 'https://project5api.herokuapp.com/api/oefenings');
         $result = $res->getBody();

@@ -23,15 +23,13 @@ export const AuthProvider = ({children}) => {
         email,
         password,
         password_confirmation,
-      })
-      .then(res => {
+      }).then(res => {
         let userInfo = res.data;
         setUserInfo(userInfo);
         AsyncStorage.setItem('userInfo', JSON.stringify(userInfo));
         setIsLoading(false);
         console.log(userInfo);
-      })
-      .catch(e => {
+      }).catch(e => {
         console.log(`register error ${e}`);
         setIsLoading(false);
       });

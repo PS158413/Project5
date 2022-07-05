@@ -29,34 +29,34 @@ const RegisterScreen = ({navigation}) => {
           style={styles.input}
           value={name}
           placeholder="Enter name"
-          onChangeText={text => setName()}
+          onChangeText={text => setName(text)}
         />
 
         <TextInput
           style={styles.input}
           value={email}
           placeholder="Enter email"
-          onChangeText={text => setEmail()}
+          onChangeText={text => setEmail(text)}
         />
 
         <TextInput
           style={styles.input}
           value={password}
           placeholder="Enter password"
-          onChangeText={text => setPassword()}
+          onChangeText={text => setPassword(text)}
           secureTextEntry
         />
         <TextInput
           style={styles.input}
           value={password_confirmation}
           placeholder="repeat password"
-          onChangeText={text => setPasswordConfirmation()}
+          onChangeText={text => setPasswordConfirmation(text)}
           secureTextEntry
         />
         <Button
           title="Register"
           onPress={() => {
-            register(name, email, password);
+            register(name, email, password, password_confirmation);
           }}
         />
 

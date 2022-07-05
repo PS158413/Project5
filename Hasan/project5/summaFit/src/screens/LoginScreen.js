@@ -15,6 +15,8 @@ const LoginScreen = ({navigation}) => {
   const [password, setPassword] = useState("");
   const {isLoading, login} = useContext(AuthContext);
 
+  
+
   return (
     <View style={styles.container}>
       {/* <Spinner visible={isLoading} /> */}
