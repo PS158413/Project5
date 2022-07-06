@@ -39,7 +39,7 @@ export default function App() {
 
     return (
         <View style={styles.container}>
-            <ImageBackground source={require('../assets/backgroundexercise.png')} resizeMode="cover" style={styles.image} >
+            {/* <ImageBackground source={require('../assets/backgroundexercise.png')} resizeMode="cover" style={styles.image} > */}
                 <Text style={{ height: '85%', fontSize: 32 }} >Profile</Text>
 
                 <FlatList style={styles.FlatList}
@@ -49,7 +49,7 @@ export default function App() {
                 ></FlatList>
 
                 <StatusBar style="auto" />
-            </ImageBackground>
+            {/* </ImageBackground> */}
         </View>
     );
 }

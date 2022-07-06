@@ -1,27 +1,26 @@
-import React, { useContext, useState } from 'react';
+import React, {useContext, useState} from 'react';
 import {
   Button,
   Text,
   TextInput,
   TouchableOpacity,
   View,
-  SafeAreaView,
   StyleSheet,
 } from 'react-native';
 import Spinner from 'react-native-loading-spinner-overlay';
-import { AuthContext } from './context/AuthContext';
+import {AuthContext} from './context/AuthContext';
 
-const LoginScreen = ({ navigation }) => {
+const LoginScreen = ({navigation}) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { isLoading, login } = useContext(AuthContext);
+  const {isLoading, login} = useContext(AuthContext);
 
-
+  
 
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       {/* <Spinner visible={isLoading} /> */}
-      
+      <View style={styles.wrapper}>
         <TextInput
           style={styles.input}
           value={email}
@@ -37,43 +36,39 @@ const LoginScreen = ({ navigation }) => {
           secureTextEntry
         />
 
-        <TouchableOpacity
+        <Button
           title="Login"
           onPress={() => {
             login(email, password);
           }}
-        >
-          <Text style={{ fontSize: 20, textAlign: "center", }}>Login</Text>
-        </TouchableOpacity>
+        />
 
-        <View style={{ flexDirection: 'row', marginTop: 20 }}>
+        <View style={{flexDirection: 'row', marginTop: 20}}>
           <Text>Don't have an account? </Text>
           <TouchableOpacity onPress={() => navigation.navigate('Register')}>
-            <Text style={styles.link}>Registreer</Text>
+            <Text style={styles.link}>Register</Text>
           </TouchableOpacity>
         </View>
-    
-    </SafeAreaView>
+      </View>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#0FEED9',
     alignItems: 'center',
     justifyContent: 'center',
   },
-
+  wrapper: {
+    width: '80%',
+  },
   input: {
-    height: 40,
-    margin: 12,
-    fontSize: 20,
-    borderBottomWidth: 1,
-    padding: 10,
-    width: '50%',
-
-    textAlign: "center",
+    marginBottom: 12,
+    borderWidth: 1,
+    borderColor: '#bbb',
+    borderRadius: 5,
+    paddingHorizontal: 14,
   },
   link: {
     color: 'blue',
