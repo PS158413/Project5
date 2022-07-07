@@ -41,7 +41,7 @@ console.log(image);
           {/* <Text style={styles.description} source = {{uri:`https://res.cloudinary.com/summa/raw/upload/v1656438728/Project5/beschrijving/${beschrijving}`}}> {}</Text> */}
           <Text style={styles.description}>Beschrijving: {description}</Text>
  
-          <Image style={{backgroundColor: 'red',  width: 380, height:300 }} source = {{uri:`https://res.cloudinary.com/summa/image/upload/v1656438446/Project5${image}`}}/>
+          <Image style={{backgroundColor: 'red',  width: 380, height:300 }} source = {{uri:`${image}`}}/>
         
         </ScrollView>
         <StatusBar style="auto"/>
@@ -54,7 +54,7 @@ console.log(image);
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: 'row',
+    flexDirection: 'column',
     alignItems: 'center',
     alignContent: 'flex-start',
     justifyContent: 'flex-start',
