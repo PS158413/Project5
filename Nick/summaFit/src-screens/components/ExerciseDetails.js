@@ -10,7 +10,7 @@ export default function App({ route, navigation }) {
   const { id, oefenings, beschrijving, foto } = route.params;
 
   const fetchData = async () => {
-    const resp = await fetch(`https://project5api.herokuapp.com/api/oefenings/${id}`);
+    const resp = await fetch(`https://sleepy-sea-01167.herokuapp.com/api/exercise${id}`);
     const data = await resp.json();
     console.log(data);
 

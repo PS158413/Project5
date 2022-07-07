@@ -57,12 +57,12 @@ const MyTabs = () => {
     <NavigationContainer>
       <Tab.Navigator>
         {/* <Tab.Screen name="Home" component={Home} /> */}
-        <Tab.Screen name="StackAllExercises" component={Navigation}
-          options={{ tabBarLabel: 'oefeningen' }} />
+        <Tab.Screen name="Navigation" component={Navigation}
+          options={{tabBarLabel: 'Login'}} />
 
         {/* <Tab.Screen name="Profile" component={Profile} /> */}
         <Tab.Screen name="Exercises" component={Exercises}
-          options={{ tabBarLabel: 'Home' }} />
+          options={{ tabBarLabel: 'oefeningen' }} />
              <Tab.Screen name="About" component={About}
           options={{ tabBarLabel: 'Over ons' }} />
       </Tab.Navigator>
