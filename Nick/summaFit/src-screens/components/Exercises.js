@@ -14,7 +14,7 @@ export default function App({ navigation }) {
     const [data, setData] = useState([]);
 
     const fetchData = async () => {
-        const resp = await fetch("https://project5api.herokuapp.com/api/oefenings");
+        const resp = await fetch("https://sleepy-sea-01167.herokuapp.com/api/exercise");
         const data = await resp.json();
         console.log(data);
         setData(data);

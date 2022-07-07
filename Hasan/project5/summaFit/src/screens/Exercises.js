@@ -14,7 +14,7 @@ export default function App({ navigation }) {
     const [data, setData] = useState([]);
 
     const fetchData = async () => {
-        const resp = await fetch("https://project5api.herokuapp.com/api/oefenings");
+        const resp = await fetch("https://sleepy-sea-01167.herokuapp.com/api/exercise");
         const data = await resp.json();
         console.log(data);
         setData(data);
@@ -28,9 +28,9 @@ export default function App({ navigation }) {
     
         <Text
             style={styles.text}
-            onPress={() => navigation.navigate("ExerciseDetails", { id: item.id, oefenings: item.oefenings, beschrijving: item.beschrijving, foto: item.foto  })}
+            onPress={() => navigation.navigate("ExerciseDetails", { id: item.id,  description: item.description, name: item.name, image: item.image  })}
         >
-            {item.oefenings}
+            {item.name}
         </Text>
 
 
@@ -55,12 +55,12 @@ export default function App({ navigation }) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        flexDirection: 'row',
+        // flexDirection: 'row',
+       
         alignItems: 'center',
         justifyContent: 'center',
         textAlignVertical: 'top',
-        paddingTop: 0,
-        paddingBottom: 0
+       
     },
     image: {
         width: "100%",

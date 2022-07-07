@@ -7,10 +7,10 @@ import { StyleSheet, Text, View, ImageBackground, Image, ScrollView, SafeAreaVie
 
 export default function App({ route, navigation }) {
   const [data, setData] = useState();
-  const { id, oefenings, beschrijving, foto } = route.params;
+  const { id, name, description, image } = route.params;
 
   const fetchData = async () => {
-    const resp = await fetch(`https://project5api.herokuapp.com/api/oefenings/${id}`);
+    const resp = await fetch(`https://sleepy-sea-01167.herokuapp.com/api/exercise${id}`);
     const data = await resp.json();
     console.log(data);
 
@@ -23,12 +23,12 @@ export default function App({ route, navigation }) {
   }, []);
 
 const ImagesExample = () => (
-  <Image source = {{uri:`https://res.cloudinary.com/summa/raw/upload/v1656438728/Project5/beschrijving/${foto}`}}
+  <Image source = {{uri:`https://res.cloudinary.com/summa/raw/upload/v1656438728/Project5/beschrijving/${image}`}}
   style = {{ width: 200, height: 200 }}
   />
   
 )
-console.log(foto);
+console.log(image);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -37,11 +37,11 @@ console.log(foto);
         <Text style={styles.texttop}>Oefeningen details</Text>
 
         <ScrollView style={styles.details}>
-          <Text style={styles.description}>Oefening: {oefenings}</Text>
+          <Text style={styles.description}>Oefening: {name}</Text>
           {/* <Text style={styles.description} source = {{uri:`https://res.cloudinary.com/summa/raw/upload/v1656438728/Project5/beschrijving/${beschrijving}`}}> {}</Text> */}
-          <Text style={styles.description}>Beschrijving: {beschrijving}</Text>
+          <Text style={styles.description}>Beschrijving: {description}</Text>
  
-          <Image style={{backgroundColor: 'red',  width: 380, height:300 }} source = {{uri:`https://res.cloudinary.com/summa/image/upload/v1656438446/Project5/fotos/${foto}`}}/>
+          <Image style={{backgroundColor: 'red',  width: 380, height:300 }} source = {{uri:`https://res.cloudinary.com/summa/image/upload/v1656438446/Project5${image}`}}/>
         
         </ScrollView>
         <StatusBar style="auto"/>
