@@ -3,13 +3,14 @@ import React from 'react'
 
 const About = () => {
   return (
-
-    <SafeAreaView style={styles.container}>
-      <Text style={{fontSize:30}}>deze app is gemaakt door de slimste jongens van heel de wereld.</Text>
-      <Text style={{fontSize:30}}>In deze app kunt u inloggen, resistreren en alle oefeningen zien die je kunt uitvoeren.
+<View style={styles.container}>
+    <SafeAreaView  style={{margin:15}}>
+      <Text style={{fontSize:30}}>dit is de eerste versie van de app. in de komende tijd komen er verschillende updates dat u uw oefeningen zelf kunt toevogen en uw prestaties kunt bijhouden.</Text>
+      <Text style={{fontSize:30, marginTop:15}}>In deze app kunt u inloggen, resistreren en alle oefeningen zien die je kunt uitvoeren.
         Ook kunt u in uw account bekijken welke oefeningen u gedaan heeft, daarbij staat ook hoe lang u erover gedaan heeft
       </Text>
     </SafeAreaView>
+    </View>
   )
 }
 
@@ -21,5 +22,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#0FEED9',
         alignItems: 'center',
         justifyContent: 'center',
+      
       },
 })
