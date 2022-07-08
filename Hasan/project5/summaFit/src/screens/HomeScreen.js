@@ -1,38 +1,38 @@
-import React, {useContext, useState, useEffect} from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 
 
-import {Button, StyleSheet, Text, View, FlatList} from 'react-native';
+import { Button, StyleSheet, Text, View, FlatList } from 'react-native';
 import Spinner from 'react-native-loading-spinner-overlay';
-import {AuthContext} from './context/AuthContext';
+import { AuthContext } from './context/AuthContext';
 
 const HomeScreen = () => {
-  const {userInfo, isLoading, logout} = useContext(AuthContext);
+  const { userInfo, isLoading, logout } = useContext(AuthContext);
 
 
   const [data, setData] = useState([]);
 
-    const fetchData = async () => {
-        const resp = await fetch("https://nameless-stream-28529.herokuapp.com/api/prestaties");
-        const data = await resp.json();
-        console.log(data);
-        setData(data);
-    };
-   
-    useEffect(() => {
-        fetchData();
-    }, []);
+  const fetchData = async () => {
+    const resp = await fetch("http://127.0.0.1:8000/api/performance");
+    const data = await resp.json();
+    console.log(data);
+    setData(data);
+  };
 
-    const renderItem = ({ item }) => (
+  useEffect(() => {
+    fetchData();
+  }, []);
 
-        <Text
-            style={styles.text}
-            onPress={() => navigation.navigate("ExerciseDetails", { id: item.id })}
-        >
-            {item.prestaties}
-        </Text>
+  const renderItem = ({ item }) => (
+
+    <Text
+      style={styles.text}
+      onPress={() => navigation.navigate("ExerciseDetails", { id: item.id })}
+    >
+      {item.performance}
+    </Text>
 
 
-    );
+  );
 
 
   return (
@@ -42,11 +42,17 @@ const HomeScreen = () => {
       <Button title="Logout" color="red" onPress={logout} />
 
       <Text>hier staan al uw prestaties</Text>
-      {/* <FlatList style={styles.FlatList}
-                    data={data}
-                    renderItem={renderItem}
-                    keyExtractor={(item) => item.id.toString()}
-                ></FlatList> */}
+      <View>
+        <Text>oefening: burpee</Text>
+        <Text>aantal: 12</Text>
+        <Text>eindtijd: 40 seconde</Text>
+      </View>
+
+      <View>
+        <Text>oefening: squat</Text>
+        <Text>aantal: 12</Text>
+        <Text>eindtijd: 60 seconde</Text>
+      </View>
     </View>
   );
 };
